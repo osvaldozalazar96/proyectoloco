@@ -1,0 +1,839 @@
+:root {
+    --negro: #08060d;
+    --negro-suave: #100c18;
+    --violeta-oscuro: #211044;
+    --violeta: #7c3aed;
+    --violeta-claro: #a855f7;
+    --violeta-brillante: #c084fc;
+
+    --blanco: #ffffff;
+    --gris: #c4bdcc;
+    --gris-oscuro: #81788d;
+
+    --borde: rgba(168, 85, 247, 0.25);
+    --sombra-violeta: rgba(124, 58, 237, 0.35);
+
+    --fuente: -apple-system, BlinkMacSystemFont, "Segoe UI",
+              Roboto, Helvetica, Arial, sans-serif;
+}
+
+
+/* ==============================
+   CONFIGURACIÓN GENERAL
+   ============================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background:
+        radial-gradient(circle at 50% 0%, rgba(124, 58, 237, 0.18), transparent 35%),
+        linear-gradient(180deg, #08060d 0%, #0b0812 50%, #050408 100%);
+
+    color: var(--blanco);
+    font-family: var(--fuente);
+    line-height: 1.6;
+
+    min-height: 100vh;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* Barra de selección */
+
+::selection {
+    background: var(--violeta);
+    color: white;
+}
+
+
+/* ==============================
+   SCROLLBAR
+   ============================== */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--negro);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        var(--violeta),
+        var(--violeta-claro)
+    );
+
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--violeta-brillante);
+}
+
+
+/* ==============================
+   NAVEGACIÓN
+   ============================== */
+
+header {
+    position: sticky;
+    top: 0;
+
+    background: rgba(8, 6, 13, 0.82);
+    backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid var(--borde);
+
+    z-index: 1000;
+
+    box-shadow:
+        0 5px 25px rgba(0, 0, 0, 0.35);
+}
+
+nav {
+    max-width: 1150px;
+    margin: auto;
+
+    padding: 1rem 2rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* Logo */
+
+.logo {
+    color: white;
+    text-decoration: none;
+
+    font-size: 1.15rem;
+    font-weight: 800;
+
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    transition: 0.3s ease;
+}
+
+.logo:hover {
+    color: var(--violeta-claro);
+
+    text-shadow:
+        0 0 10px rgba(168, 85, 247, 0.7);
+}
+
+
+/* Links */
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+
+    list-style: none;
+}
+
+.nav-links a {
+    position: relative;
+
+    color: var(--gris);
+
+    text-decoration: none;
+
+    font-size: 0.95rem;
+    font-weight: 500;
+
+    transition: 0.3s ease;
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--violeta-claro);
+
+    box-shadow:
+        0 0 8px var(--violeta-claro);
+
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* ==============================
+   CONTENIDO PRINCIPAL
+   ============================== */
+
+main {
+    max-width: 1150px;
+    margin: auto;
+
+    padding: 0 2rem;
+}
+
+section {
+    padding: 6rem 0;
+
+    border-bottom:
+        1px solid rgba(168, 85, 247, 0.12);
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+
+/* ==============================
+   HERO
+   ============================== */
+
+.hero {
+    min-height: 85vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* Círculo decorativo */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(124, 58, 237, 0.18),
+            transparent 65%
+        );
+
+    border-radius: 50%;
+
+    z-index: -1;
+}
+
+
+/* Línea decorativa */
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 5%;
+
+    width: 100px;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--violeta),
+        transparent
+    );
+
+    box-shadow:
+        0 0 15px var(--violeta);
+}
+
+
+/* Etiqueta */
+
+.hero-tag {
+    display: inline-block;
+
+    padding: 0.45rem 1rem;
+
+    border: 1px solid var(--borde);
+
+    border-radius: 50px;
+
+    background: rgba(124, 58, 237, 0.08);
+
+    color: var(--violeta-claro);
+
+    font-size: 0.8rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.18em;
+
+    font-weight: 700;
+
+    margin-bottom: 1.5rem;
+
+    box-shadow:
+        0 0 20px rgba(124, 58, 237, 0.08);
+}
+
+
+/* Título */
+
+.hero h1 {
+    font-size: clamp(3rem, 7vw, 5.5rem);
+
+    font-weight: 900;
+
+    letter-spacing: -0.05em;
+
+    line-height: 1;
+
+    margin-bottom: 1.5rem;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            120deg,
+            #ffffff 20%,
+            #d8b4fe 50%,
+            #8b5cf6 80%
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    text-shadow:
+        0 0 40px rgba(124, 58, 237, 0.25);
+}
+
+
+.hero p {
+    max-width: 700px;
+
+    color: var(--gris);
+
+    font-size: 1.15rem;
+
+    margin-bottom: 2.5rem;
+}
+
+
+/* ==============================
+   BOTONES
+   ============================== */
+
+.btn {
+    display: inline-block;
+
+    padding: 0.95rem 2rem;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6d28d9,
+            #9333ea
+        );
+
+    border: 1px solid rgba(216, 180, 254, 0.3);
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 0 25px rgba(124, 58, 237, 0.35);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #a855f7
+        );
+
+    box-shadow:
+        0 10px 35px rgba(124, 58, 237, 0.5);
+}
+
+
+/* ==============================
+   ENCABEZADOS
+   ============================== */
+
+.section-header {
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-size: 2.2rem;
+
+    font-weight: 800;
+
+    color: white;
+
+    margin-bottom: 0.6rem;
+}
+
+.section-header h2::before {
+    content: "// ";
+
+    color: var(--violeta-claro);
+}
+
+.section-header p {
+    color: var(--gris);
+
+    font-size: 1.05rem;
+}
+
+
+/* ==============================
+   GRID
+   ============================== */
+
+.grid-3 {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 1.5rem;
+}
+
+
+/* ==============================
+   CARDS
+   ============================== */
+
+.card {
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.05),
+            rgba(124, 58, 237, 0.04)
+        );
+
+    border: 1px solid var(--borde);
+
+    padding: 2rem;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Brillo superior */
+
+.card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--violeta-claro),
+            transparent
+        );
+
+    opacity: 0;
+
+    transition: opacity 0.3s ease;
+}
+
+
+.card:hover {
+    transform: translateY(-8px);
+
+    border-color:
+        rgba(168, 85, 247, 0.6);
+
+    box-shadow:
+        0 15px 45px rgba(124, 58, 237, 0.2);
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+
+.card h3 {
+    color: white;
+
+    font-size: 1.3rem;
+
+    margin-bottom: 0.8rem;
+
+    font-weight: 700;
+}
+
+
+.card h3::first-letter {
+    color: var(--violeta-claro);
+}
+
+
+.card p {
+    color: var(--gris);
+
+    font-size: 0.95rem;
+}
+
+
+/* ==============================
+   HISTORIA / ACTOS
+   ============================== */
+
+.narrative-container {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1.5rem;
+}
+
+
+.act-card {
+    position: relative;
+
+    background:
+        linear-gradient(
+            100deg,
+            rgba(124, 58, 237, 0.09),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    border: 1px solid var(--borde);
+
+    border-left:
+        4px solid var(--violeta);
+
+    padding: 2rem;
+
+    border-radius: 0 16px 16px 0;
+
+    transition: 0.3s ease;
+}
+
+.act-card:hover {
+    transform: translateX(7px);
+
+    border-left-color:
+        var(--violeta-claro);
+
+    box-shadow:
+        -10px 0 30px rgba(124, 58, 237, 0.15);
+}
+
+
+.act-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 1rem;
+
+    margin-bottom: 1rem;
+}
+
+
+.act-title {
+    color: white;
+
+    font-size: 1.3rem;
+
+    font-weight: 800;
+}
+
+
+.act-day {
+    flex-shrink: 0;
+
+    background:
+        rgba(124, 58, 237, 0.15);
+
+    color:
+        var(--violeta-claro);
+
+    border:
+        1px solid rgba(168, 85, 247, 0.3);
+
+    padding: 0.3rem 0.7rem;
+
+    border-radius: 50px;
+
+    font-size: 0.8rem;
+
+    font-weight: 700;
+}
+
+
+.act-card p {
+    color: var(--gris);
+
+    margin-bottom: 1rem;
+
+    font-size: 0.95rem;
+}
+
+
+.act-quote {
+    color: var(--violeta-brillante);
+
+    font-style: italic;
+
+    border-left:
+        2px solid var(--violeta);
+
+    padding-left: 1rem;
+
+    font-size: 0.9rem;
+}
+
+
+/* ==============================
+   REFLEXIÓN FINAL
+   ============================== */
+
+.reflection {
+    position: relative;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(124, 58, 237, 0.15),
+            transparent 70%
+        ),
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.04),
+            rgba(124,58,237,0.05)
+        );
+
+    border:
+        1px solid var(--borde);
+
+    padding: 5rem 2rem;
+
+    border-radius: 20px;
+
+    margin: 2rem 0;
+
+    box-shadow:
+        0 15px 50px rgba(0, 0, 0, 0.35);
+}
+
+
+.reflection blockquote {
+    color: #eee;
+
+    max-width: 850px;
+
+    margin: 0 auto 1.5rem;
+
+    font-size: 1.2rem;
+
+    line-height: 1.9;
+
+    font-weight: 400;
+}
+
+
+.reflection cite {
+    display: block;
+
+    color:
+        var(--violeta-claro);
+
+    font-size: 0.85rem;
+
+    font-style: normal;
+
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.15em;
+}
+
+
+/* ==============================
+   FOOTER
+   ============================== */
+
+footer {
+    padding: 3rem 1rem;
+
+    text-align: center;
+
+    color: var(--gris-oscuro);
+
+    font-size: 0.85rem;
+
+    border-top:
+        1px solid rgba(168, 85, 247, 0.12);
+
+    background:
+        rgba(0, 0, 0, 0.25);
+}
+
+
+/* ==============================
+   ANIMACIÓN DE APARICIÓN
+   ============================== */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero > * {
+    animation:
+        aparecer 0.8s ease both;
+}
+
+.hero-tag {
+    animation-delay: 0.1s;
+}
+
+.hero h1 {
+    animation-delay: 0.2s;
+}
+
+.hero p {
+    animation-delay: 0.3s;
+}
+
+.hero .btn {
+    animation-delay: 0.4s;
+}
+
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+
+@media (max-width: 768px) {
+
+    nav {
+        padding: 1rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    main {
+        padding: 0 1rem;
+    }
+
+    section {
+        padding: 4rem 0;
+    }
+
+    .hero {
+        min-height: 75vh;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .act-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .reflection {
+        padding: 3rem 1.5rem;
+    }
+
+    .reflection blockquote {
+        font-size: 1rem;
+    }
+}
